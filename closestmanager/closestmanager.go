@@ -18,7 +18,7 @@ func NoCommonManagerError() error {
 	return errNoCommonManager
 }
 
-// FindClosestManager returns the manager of two given employees.
+// FindClosestManagerMap returns the manager of two given employees.
 func FindClosestManagerMap(empMgrMap map[Employee]*Employee, e1, e2 Employee) (Employee, error) {
 	managers := make(map[Employee]struct{})
 	for mgr, found := empMgrMap[e1]; found && mgr != nil; mgr, found = empMgrMap[e1] {
