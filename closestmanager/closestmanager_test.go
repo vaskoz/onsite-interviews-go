@@ -37,7 +37,7 @@ var testcases = []struct {
 	{employees["vpoe"], employees["vpop"], employees["ceo"], nil},
 	{employees["opsDirector"], employees["swMgr"], employees["vpoe"], nil},
 	{employees["otherMgr"], employees["swMgr"], employees["softDirector"], nil},
-	{employees["vpoe"], employees["ceo"], &Employee{}, getNoCommonManagerError()},
+	{employees["vpoe"], employees["ceo"], &Employee{}, NoCommonManagerError()},
 }
 
 func TestFindClosestManagerMap(t *testing.T) {

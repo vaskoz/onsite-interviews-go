@@ -13,7 +13,8 @@ type Employee struct {
 
 var errNoCommonManager = fmt.Errorf("No common manager found")
 
-func getNoCommonManagerError() error {
+// NoCommonManagerError returns the errNoCommonManager error owned by the package.
+func NoCommonManagerError() error {
 	return errNoCommonManager
 }
 
@@ -30,5 +31,5 @@ func FindClosestManager(empMgrMap map[Employee]*Employee, e1, e2 Employee) (Empl
 		}
 		e2 = *mgr
 	}
-	return Employee{}, getNoCommonManagerError()
+	return Employee{}, NoCommonManagerError()
 }
