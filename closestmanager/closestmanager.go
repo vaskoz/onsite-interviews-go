@@ -19,7 +19,7 @@ func NoCommonManagerError() error {
 }
 
 // FindClosestManager returns the manager of two given employees.
-func FindClosestManager(empMgrMap map[Employee]*Employee, e1, e2 Employee) (Employee, error) {
+func FindClosestManagerMap(empMgrMap map[Employee]*Employee, e1, e2 Employee) (Employee, error) {
 	managers := make(map[Employee]struct{})
 	for mgr, found := empMgrMap[e1]; found && mgr != nil; mgr, found = empMgrMap[e1] {
 		managers[*mgr] = struct{}{}
@@ -32,4 +32,18 @@ func FindClosestManager(empMgrMap map[Employee]*Employee, e1, e2 Employee) (Empl
 		e2 = *mgr
 	}
 	return Employee{}, NoCommonManagerError()
+}
+
+// FindClosestManagerGraph returns the manager of two given employees.
+func FindClosestManagerGraph(e1, e2 *Employee) (*Employee, error) {
+	managers := make(map[*Employee]struct{})
+	for mgr := e1.manager; mgr != nil; mgr = mgr.manager {
+		managers[mgr] = struct{}{}
+	}
+	for mgr := e2.manager; mgr != nil; mgr = mgr.manager {
+		if _, found := managers[mgr]; found {
+			return mgr, nil
+		}
+	}
+	return nil, NoCommonManagerError()
 }
