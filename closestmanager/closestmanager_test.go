@@ -5,13 +5,13 @@ import (
 )
 
 var employeesForMap = map[string]*Employee{
-	"ceo":          &Employee{100, "big", "boss", 11, nil},
-	"vpoe":         &Employee{12, "big", "tech", 10, nil},
-	"opsDirector":  &Employee{11, "ops", "dude", 9, nil},
-	"softDirector": &Employee{533, "sw", "peeps", 9, nil},
-	"swMgr":        &Employee{80, "me", "you", 8, nil},
-	"otherMgr":     &Employee{5, "other", "guy", 8, nil},
-	"vpop":         &Employee{54, "prod", "uct guy", 10, nil},
+	"ceo":          {100, "big", "boss", 11, nil},
+	"vpoe":         {12, "big", "tech", 10, nil},
+	"opsDirector":  {11, "ops", "dude", 9, nil},
+	"softDirector": {533, "sw", "peeps", 9, nil},
+	"swMgr":        {80, "me", "you", 8, nil},
+	"otherMgr":     {5, "other", "guy", 8, nil},
+	"vpop":         {54, "prod", "uct guy", 10, nil},
 }
 
 func createTestCompanyMap() map[Employee]*Employee {
