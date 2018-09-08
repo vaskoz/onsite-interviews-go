@@ -22,3 +22,11 @@ func TestMapping(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkMapping(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, tc := range testcases {
+			Mapping(tc.src, tc.target)
+		}
+	}
+}
